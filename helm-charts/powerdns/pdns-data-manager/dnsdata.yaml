@@ -1,0 +1,81 @@
+zones:
+  - name: suse.baremetal.
+    kind: MASTER
+    nameservers:   
+      - suse.baremetal.
+    masters: []
+    records:
+      - name: suse.baremetal.
+        type: NS
+        disabled: false
+        ttl: 86400
+        content: ["suse.baremetal."]
+
+      - name: suse.baremetal.
+        type: SOA
+        disabled: false
+        ttl: 86400
+        content: ["suse.baremetal. root.suse.baremetal. 2 28800 7200 604800 86400"]
+
+      - name: api.ironic.suse.baremetal.
+        type: A
+        disabled: false
+        ttl: 86400
+        content: ["192.168.0.231"]
+      
+      - name: boot.ironic.suse.baremetal.
+        type: A
+        disabled: false
+        ttl: 86400
+        content: ["192.168.0.231"]
+      
+      - name: cache.ironic.suse.baremetal.
+        type: A
+        disabled: false
+        ttl: 86400
+        content: ["192.168.0.231"]
+      
+      - name: inspector.ironic.suse.baremetal.
+        type: A
+        disabled: false
+        ttl: 86400
+        content: ["192.168.0.231"]
+
+      - name: media.suse.baremetal.
+        type: A
+        disabled: false
+        ttl: 86400
+        content: ["192.168.0.231"]
+
+  - name: 0.168.192.in-addr.arpa.
+    kind: MASTER
+    nameservers:
+      - suse.baremetal.
+    masters: []
+    records:
+      - name: 0.168.192.in-addr.arpa.
+        type: NS
+        disabled: false
+        ttl: 86400
+        content: ["suse.baremetal."]
+
+      - name: 0.168.192.in-addr.arpa.
+        type: SOA
+        disabled: false
+        ttl: 86400
+        content: ["suse.baremetal. root.suse.baremetal. 3 28800 7200 604800 86400"]
+
+      - name: 231.0.168.192.in-addr.arpa.
+        type: PTR
+        disabled: false
+        ttl: 86400
+        content: ["suse.baremetal.", "api.ironic.suse.baremetal.", "boot.ironic.suse.baremetal.",
+                  "cache.ironic.suse.baremetal.", "inspector.ironic.suse.baremetal.",
+                  "media.suse.baremetal."]
+
+  - name: example.test.
+    kind: MASTER
+    nameservers:
+      - example.test.
+    masters: []
+    records: []
