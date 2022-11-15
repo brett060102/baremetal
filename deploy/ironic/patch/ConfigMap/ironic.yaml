@@ -1,36 +1,36 @@
 - op: replace
   path: /data/CACHEURL
-  value: http://cache.ironic.metal.suse.network/images
+  value: http://cache.ironic.suse.baremetal/images
 - op: replace
   path: /data/DEPLOY_KERNEL_URL
-  value: http://boot.ironic.metal.suse.network/images/ironic-python-agent.kernel
+  value: http://boot.ironic.suse.baremetal/images/ironic-python-agent.kernel
 - op: replace
   path: /data/DEPLOY_RAMDISK_URL
-  value: http://boot.ironic.metal.suse.network/images/ironic-python-agent.initramfs
+  value: http://boot.ironic.suse.baremetal/images/ironic-python-agent.initramfs
 - op: replace
   path: /data/DHCP_RANGE
-  value: 172.19.28.10,172.19.28.100,infinite
+  value: 192.168.24.182,192.168.24.200
 - op: replace
   path: /data/IRONIC_ENDPOINT
-  value: http://api.ironic.metal.suse.network/v1/
+  value: http://api.ironic.suse.baremetal/v1/
 - op: replace
   path: /data/IRONIC_INSPECTOR_ENDPOINT
-  value: http://inspector.ironic.metal.suse.network/v1/
+  value: http://inspector.ironic.suse.baremetal/v1/
 - op: replace
   path: /data/PROVISIONING_INTERFACE
-  value: mgmt-vlan
+  value: ens3
 - op: add
   path: /data/DNSMASQ_BOOT_SERVER_ADDRESS
-  value: boot.ironic.metal.suse.network
+  value: boot.ironic.suse.baremetal
 - op: add
   path: /data/DNSMASQ_DEFAULT_ROUTER
-  value: 172.19.28.1
+  value: 192.168.24.254
 - op: add
   path: /data/DNSMASQ_DNS_SERVER_ADDRESS
-  value: 172.19.28.200
+  value: 192.168.24.181
 - op: add
   path: /data/PROVISIONING_IP
-  value: 172.19.28.2
+  value: 192.168.24.181
 - op: add
   path: /data/RESTART_CONTAINER_CERTIFICATE_UPDATED
   value: "false"
@@ -42,31 +42,31 @@
   value: "true"
 - op: add
   path: /data/IRONIC_API_HTTPD_SERVER_NAME
-  value: api.ironic.metal.suse.network
+  value: api.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_API_HOST
-  value: api.ironic.metal.suse.network
+  value: api.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_API_BASE_URL
-  value: http://api.ironic.metal.suse.network
+  value: http://api.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_BOOT_BASE_URL
-  value: http://boot.ironic.metal.suse.network
+  value: http://boot.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_INSPECTOR_HOST
-  value: inspector.ironic.metal.suse.network
+  value: inspector.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_INSPECTOR_HTTPD_SERVER_NAME
-  value: inspector.ironic.metal.suse.network
+  value: inspector.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_INSPECTOR_BASE_URL
-  value: http://inspector.ironic.metal.suse.network
+  value: http://inspector.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_REVERSE_PROXY_SETUP
   value: "false"
 - op: add
   path: /data/IRONIC_VMEDIA_HTTPD_SERVER_NAME
-  value: boot.ironic.metal.suse.network
+  value: boot.ironic.suse.baremetal
 - op: add
   path: /data/IRONIC_ILO_USE_SWIFT
   value: "false"
@@ -75,4 +75,4 @@
   value: "true"
 - op: add
   path: /data/IPA_BASEURI
-  value: https://media.metal.suse.network
+  value: http://10.84.144.252/metal3

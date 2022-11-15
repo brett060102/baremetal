@@ -1,27 +1,27 @@
 - op: replace
   path: /data/CACHEURL
-  value: http://cache.ironic.metal.suse.network/images
+  value: http://cache.ironic.suse.baremetal/images
 - op: replace
   path: /data/DEPLOY_KERNEL_URL
-  value: http://boot.ironic.metal.suse.network/images/ironic-python-agent.kernel
+  value: http://boot.ironic.suse.baremetal/images/ironic-python-agent.kernel
 - op: replace
   path: /data/DEPLOY_RAMDISK_URL
-  value: http://boot.ironic.metal.suse.network/images/ironic-python-agent.initramfs
+  value: http://boot.ironic.suse.baremetal/images/ironic-python-agent.initramfs
 - op: replace
   path: /data/DHCP_RANGE
-  value: 172.19.28.10,172.19.28.100
+  value: 192.168.24.182,192.168.24.200
 - op: replace
   path: /data/IRONIC_ENDPOINT
-  value: http://api.ironic.metal.suse.network/v1/
+  value: http://api.ironic.suse.baremetal/v1/
 - op: replace
   path: /data/IRONIC_INSPECTOR_ENDPOINT
-  value: http://inspector.ironic.metal.suse.network/v1/
+  value: http://inspector.ironic.suse.baremetal/v1/
 - op: replace
   path: /data/PROVISIONING_INTERFACE
-  value: mgmt-vlan
+  value: ens3
 - op: add
   path: /data/PROVISIONING_IP
-  value: 172.19.28.2
+  value: 192.168.24.181
 - op: add
   path: /data/RESTART_CONTAINER_CERTIFICATE_UPDATED
   value: "false"

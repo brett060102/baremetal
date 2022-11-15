@@ -19,7 +19,11 @@ ${PROG_WHICH:="which"} \
     ${PROG_TEST:="test"} \
     ${PROG_TRUE:="true"} \
     ${PROG_YQ:="yq"} \
-    ${PROG_WHICH} >/dev/null
+    ${PROG_WHICH}  || {
+       echo "something is missing"
+       exit 1
+    }
+
 
 ###########################
 # Directory Configuration #
@@ -44,7 +48,7 @@ ${PROG_WHICH:="which"} \
 : ${IRONIC_IPA_DOWNLOADER_IMAGE:="quay.io/metal3-io/ironic-ipa-downloader"}
 # : ${IRONIC_IPA_DOWNLOADER_IMAGE_REF_FORMAT:="${IMAGE_REF_FORMAT}"}
 : ${IRONIC_IPA_DOWNLOADER_IMAGE_REF_FORMAT:="%s@sha256:%s"}
-: ${IRONIC_IPA_DOWNLOADER_IMAGE_REF:="ee665aa486402e2084eeed4c42c69bab6f56de550e52978af1b73cb703818995"}
+: ${IRONIC_IPA_DOWNLOADER_IMAGE_REF:="6bc8208c590c99e5e268763be3310a43331d80848aed5f5017e4d5f06a6fc2c4"}
 
 ####################
 # Helper Functions #
