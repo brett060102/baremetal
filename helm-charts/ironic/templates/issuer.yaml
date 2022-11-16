@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1 
+kind: Issuer
+metadata:
+  name: {{ include "ironic.fullname" . }}-letsencrypt-prod
+  labels:
+    {{- include "ironic.labels" . | nindent 4 }}
+spec:
+  {{- $relname := .Release.Name }}      
+  acme:
+  {{- with .Values.acme.privateKeySecretRef }}
+    privateKeySecretRef:
+      name: {{ .name }}
+    server: {{ .server }}        
+  {{- end }} 
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            key: cloudflare_api_token
+            name: {{ $relname }}-dns-provider-credentials    
