@@ -127,7 +127,10 @@ powerdns:
     key: abcdef123456
   config: { dnsupdate: yes, loglevel: 15 }
   recursor:
-    config: { forward-zones: "suse.baremetal=127.0.0.1:54", dnssec: process-no-validate }
+    config: { forward-zones: "suse.baremetal=127.0.0.1:54",
+              dnssec: process-no-validate,
+              disable-syslog: no,
+              quiet: no, logging-facility: 1, loglevel: 6  }
     port: 53
 
 zone:

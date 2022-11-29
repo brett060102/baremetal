@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "powerdns.fullname" . }}
+  name: powerdns
   labels:
     {{- include "powerdns.labels" . | nindent 4 }}
 spec:
