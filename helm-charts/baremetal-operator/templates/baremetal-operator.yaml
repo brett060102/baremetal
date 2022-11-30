@@ -1890,14 +1890,6 @@ status:
   conditions: []
   storedVersions: []
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: baremetal-operator-controller-manager
-  namespace: baremetal-operator-system
-  labels:
-    {{- include "baremetal-operator.labels" . | nindent 4 }}
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -2137,7 +2129,7 @@ roleRef:
   name: baremetal-operator-leader-election-role
 subjects:
 - kind: ServiceAccount
-  name: baremetal-operator-controller-manager
+  name: {{ include "baremetal-operator.serviceAccountName" . }}
   namespace: baremetal-operator-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -2152,7 +2144,7 @@ roleRef:
   name: baremetal-operator-manager-role
 subjects:
 - kind: ServiceAccount
-  name: baremetal-operator-controller-manager
+  name: {{ include "baremetal-operator.serviceAccountName" . }}
   namespace: baremetal-operator-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -2167,7 +2159,7 @@ roleRef:
   name: baremetal-operator-proxy-role
 subjects:
 - kind: ServiceAccount
-  name: baremetal-operator-controller-manager
+  name: {{ include "baremetal-operator.serviceAccountName" . }}
   namespace: baremetal-operator-system
 ---
 apiVersion: v1
@@ -2322,7 +2314,7 @@ spec:
         ports:
         - containerPort: 8443
           name: https
-      serviceAccountName: baremetal-operator-controller-manager
+      serviceAccountName: {{ include "baremetal-operator.serviceAccountName" . }}
       terminationGracePeriodSeconds: 10
       volumes:
       - name: cert
