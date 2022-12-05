@@ -1,8 +1,8 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: baremetal-operator-serving-cert
-  namespace: baremetal-operator-system
+  name: {{ include "baremetal-operator.fullname" . }}-cert
+  namespace: {{ include "baremetal-operator.fullname" . }}-system
   labels:
     {{- include "baremetal-operator.labels" . | nindent 4 }}
 spec:

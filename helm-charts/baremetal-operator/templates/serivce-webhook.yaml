@@ -3,8 +3,8 @@ kind: Service
 metadata:
   labels:
     {{- include "baremetal-operator.labels" . | nindent 4 }}
-  name: baremetal-operator-webhook-service
-  namespace: baremetal-operator-system
+  name: {{ include "baremetal-operator.fullname" . }}-webhook-service
+  namespace: {{ include "baremetal-operator.fullname" . }}-system
 spec:
   ports:
   - port: 443

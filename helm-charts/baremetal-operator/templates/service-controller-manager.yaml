@@ -4,8 +4,8 @@ metadata:
   labels:
     {{- include "baremetal-operator.labels" . | nindent 4 }}
     control-plane: controller-manager
-  name: baremetal-operator-controller-manager-metrics-service
-  namespace: baremetal-operator-system
+  name: {{ include "baremetal-operator.fullname" . }}-metrics-service
+  namespace: {{ include "baremetal-operator.fullname" . }}-system
 spec:
   ports:
   - name: https

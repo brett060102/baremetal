@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: baremetal-operator-leader-election-role
-  namespace: baremetal-operator-system
+  name: {{ include "baremetal-operator.fullname" . }}-leader-election-role
+  namespace: {{ include "baremetal-operator.fullname" . }}-system
   labels:
     {{- include "baremetal-operator.labels" . | nindent 4 }}
 rules:
