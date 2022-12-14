@@ -31,6 +31,13 @@ dhcp-boot=tag:efi,tag:!ipxe,snponly.efi
 dhcp-boot=/undionly.kpxe,{{ env.IRONIC_IP }}
 {% endif %}
 
+{% for mac in (env.DHCP_HOSTS | default('#') | replace('-', ':') | replace('\\,', ',')).split(',') -%}
+{%- if mac | length %}
+#dhcp-host={{ mac }}
+{% endif %}
+{% endfor %}
+dhcp-ignore=tag:!known
+
 {% if env.IPV == "6" %}
 # IPv6 Configuration:
 enable-ra
